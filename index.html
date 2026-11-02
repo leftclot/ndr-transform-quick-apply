@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ndr Transform Quick Apply</title>
+<style>
+  body { background: #232323; color: #ccc; font: 12px sans-serif; margin: 8px; }
+  .row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+  label { min-width: 70px; }
+  input[type=number] { width: 60px; }
+  input, select, button { background: #333; color: #ddd; border: 1px solid #444; padding: 3px; font: inherit; }
+  select, #presetName { flex: 1; }
+  button { cursor: pointer; }
+  button:hover { background: #3d3d3d; }
+  #apply { width: 100%; padding: 6px; margin: 4px 0 8px; }
+  hr { border: 0; border-top: 1px solid #444; margin: 8px 0; }
+  #status { min-height: 1.2em; color: #9c9; }
+  #status.err { color: #e88; }
+</style>
+</head>
+<body>
+  <div class="row"><input type="checkbox" id="useScale"><label for="useScale">Scale</label>
+    <input type="number" id="scale" value="100" step="1"> %</div>
+  <div class="row"><input type="checkbox" id="usePos"><label for="usePos">Position</label>
+    <input type="number" id="posX" value="960" step="1">
+    <input type="number" id="posY" value="540" step="1"> px</div>
+  <div class="row"><input type="checkbox" id="useRot"><label for="useRot">Rotation</label>
+    <input type="number" id="rot" value="0" step="1"> &deg;</div>
+
+  <button id="apply">Apply to selected clips</button>
+
+  <hr>
+  <div class="row"><select id="presets"><option value="">Presets...</option></select>
+    <button id="delete">Delete</button></div>
+  <div class="row"><input type="text" id="presetName" placeholder="Preset name">
+    <button id="save">Save</button></div>
+
+  <div id="status"></div>
+  <script src="main.js"></script>
+</body>
+</html>

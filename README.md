@@ -13,18 +13,27 @@ A small, free Adobe Premiere Pro panel that applies **Scale**, **Position** and/
 | Type | CEP panel (HTML/JS + ExtendScript) |
 | macOS | Not tested; see manual install below |
 
+![The ndr Transform Quick Apply panel](docs/panel.png)
+## How to Use
+
+1. Select one or more clips in the timeline.
+2. Set your Scale, Position and Rotation values.
+3. Click Apply to apply any of the checked PSR values.
+
 ## Features
 
-- Two side-by-side states, Set A and Set B, each with its own **Apply** button.
-- Set any combination of Scale (%), Position (X/Y in pixels) and Rotation (degrees). Unticked properties are left alone.
+Set A and B values
+- Two side-by-side PSR states, Set A and Set B, so you can quickly apply either.
+- Apply button follows Tick or Unticked properties 
 - Drag a value left or right to adjust it, like Premiere's own controls (hold Shift for steps of 10), or click it to type.
 - Applies to every selected video clip at once; audio clips in the selection are ignored.
+Preset Saving
 - Save either set as a named preset (e.g. "Zoom 120 left"), load a preset into either set, delete presets.
 - Remembers your last values and presets between sessions.
+
+Keyframe Handling
 - Keyframed properties are skipped and listed in the status line, so existing animation isn't overwritten.
 - Changes go on Premiere's normal Edit > Undo stack.
-
-![The ndr Transform Quick Apply panel](docs/panel.png)
 
 ## Install (Windows)
 
@@ -46,15 +55,6 @@ The installer copies the panel to `%APPDATA%\Adobe\CEP\extensions\ndr-transform-
    - Windows: add a string value `PlayerDebugMode` = `1` under `HKEY_CURRENT_USER\Software\Adobe\CSXS.12`
    - macOS: `defaults write com.adobe.CSXS.12 PlayerDebugMode 1`
 3. Restart Premiere Pro.
-
-## Use
-
-1. Select one or more clips in the timeline.
-2. In Set A or Set B, tick the properties you want to change and drag or type the values:
-   - **Scale** in %.
-   - **Position** in sequence pixels, 0,0 is the top-left corner (the centre of a 1920x1080 sequence is 960, 540).
-   - **Rotation** in degrees.
-3. Click **Apply A** or **Apply B**.
 
 **Presets:** type a name and click **Save A as** or **Save B as** to store that set's ticks and values. Pick a preset from **Load Preset...** and click **to A** or **to B** to load it into that set. **Delete** removes the selected preset.
 
@@ -81,19 +81,20 @@ Delete `%APPDATA%\Adobe\CEP\extensions\ndr-transform-quick-apply` (macOS: the fo
 ## Changelog
 
 ### v1.5
-
-- Added a second transform state, so Set A and Set B now sit side by side.
-- Replaced the single Apply button with Apply A and Apply B.
-- You can now drag values left or right to adjust them. Hold Shift for steps of 10, or click a value to type.
-- Removed the up and down arrows from the value boxes.
-- Either set can now be saved as a preset with Save A as or Save B as.
-- Presets can now be loaded into either set with to A or to B.
+Functional Changes:
+- Added a second transform state (Set), so Set A and Set B now sit side by side.
+- Changed how values are input.
+- Type-only boxes changed to Premiere Pro's default draggable left or right values. Hold Shift for steps of 10, or click a value to type.
+- Either Set can also be saved as a Preset and loaded to either Set A or B.
+Logic and UI changes:
 - Moved the status message under the Apply buttons.
 - Split the panel in two: the top half affects the timeline and the bottom half manages presets.
 
 ### v1.0
+- First release
+- Apply a fixed set of Scale, Position and Rotation to multiple selected clips
+- Save set as a named preset
 
-- First release, with Scale, Position and Rotation, plus named presets.
 
 ## License
 

@@ -19,7 +19,7 @@ A small, free Adobe Premiere Pro panel that applies **Scale**, **Position** and/
 1. Select one or more clips in the timeline.
 2. **Set** your Scale, Position and Rotation values.
 3. **Click Apply** to apply any of the checked PSR values.
-**Presets:** type a name and click **Save A as** or **Save B as** to store that set's ticks and values. Pick a preset from **Load Preset...** and click **to A** or **to B** to load it into that set. **Delete** removes the selected preset.
+4. **Presets:** type a name and click **Save A as** or **Save B as** to store that set's ticks and values. Pick a preset from **Load Preset...** and click **to A** or **to B** to load it into that set. **Delete** removes the selected preset.
 
 ## Features
 

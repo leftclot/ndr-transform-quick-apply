@@ -1,6 +1,6 @@
 # ndr Transform Quick Apply
 
-A small, free Adobe Premiere Pro panel that applies **Scale**, **Position** and/or **Rotation** to the selected timeline clips in one click, with named presets you can reuse.
+A small, free Adobe Premiere Pro panel that applies **Scale**, **Position** and/or **Rotation** to the selected timeline clips in one click. Keep two transform states side by side (Set A and Set B) and reuse them with named presets.
 
 ![Premiere Pro](https://img.shields.io/badge/Premiere%20Pro-25.5.2%20tested-9999FF) ![Platform](https://img.shields.io/badge/platform-Windows-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -15,9 +15,11 @@ A small, free Adobe Premiere Pro panel that applies **Scale**, **Position** and/
 
 ## Features
 
+- Two side-by-side states, Set A and Set B, each with its own **Apply** button.
 - Set any combination of Scale (%), Position (X/Y in pixels) and Rotation (degrees). Unticked properties are left alone.
+- Drag a value left or right to adjust it, like Premiere's own controls (hold Shift for steps of 10), or click it to type.
 - Applies to every selected video clip at once; audio clips in the selection are ignored.
-- Save named presets (e.g. "Zoom 120 left"), load them from a dropdown, delete them.
+- Save either set as a named preset (e.g. "Zoom 120 left"), load a preset into either set, delete presets.
 - Remembers your last values and presets between sessions.
 - Keyframed properties are skipped and listed in the status line, so existing animation isn't overwritten.
 - Changes go on Premiere's normal Edit > Undo stack.
@@ -46,13 +48,13 @@ The installer copies the panel to `%APPDATA%\Adobe\CEP\extensions\ndr-transform-
 ## Use
 
 1. Select one or more clips in the timeline.
-2. Tick the properties you want to change and type the values:
+2. In Set A or Set B, tick the properties you want to change and drag or type the values:
    - **Scale** in %.
    - **Position** in sequence pixels, 0,0 is the top-left corner (the centre of a 1920x1080 sequence is 960, 540).
    - **Rotation** in degrees.
-3. Click **Apply to selected clips**.
+3. Click **Apply A** or **Apply B**.
 
-**Presets:** type a name and click **Save** to store the current ticks and values. Pick a preset from the list to load it, then click Apply. **Delete** removes the selected preset.
+**Presets:** type a name and click **Save A as** or **Save B as** to store that set's ticks and values. Pick a preset from **Load Preset...** and click **to A** or **to B** to load it into that set. **Delete** removes the selected preset.
 
 ## Limitations
 

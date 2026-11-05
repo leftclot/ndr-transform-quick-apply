@@ -4,38 +4,60 @@
 <meta charset="utf-8">
 <title>ndr Transform Quick Apply</title>
 <style>
-  body { background: #232323; color: #ccc; font: 12px sans-serif; margin: 8px; }
-  .row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
-  label { min-width: 70px; }
-  input[type=number] { width: 60px; }
-  input, select, button { background: #333; color: #ddd; border: 1px solid #444; padding: 3px; font: inherit; }
-  select, #presetName { flex: 1; }
+  body { background: #232323; color: #ccc; font: 12px sans-serif; margin: 8px 10px; }
+  .sets { display: grid; grid-template-columns: 58px minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 9px 10px; }
+  .head { color: #fff; font-weight: bold; }
+  .cell { display: flex; align-items: center; gap: 5px; }
+  .cell input[type=checkbox] { margin: 0; }
+  .val { width: 44px; background: none; color: #4a9eff; border: 0; border-bottom: 1px solid #4a9eff66; padding: 0 1px; font: inherit; text-align: center; cursor: ew-resize; outline: none; }
+  .val:focus { background: #1a1a1a; cursor: text; }
+  button, select, #presetName { height: 26px; box-sizing: border-box; width: 100%; min-width: 0; margin: 0; padding: 0 6px; background: #333; color: #ddd; border: 1px solid #484848; border-radius: 3px; font: inherit; white-space: nowrap; }
   button { cursor: pointer; }
   button:hover { background: #3d3d3d; }
-  #apply { width: 100%; padding: 6px; margin: 4px 0 8px; }
-  hr { border: 0; border-top: 1px solid #444; margin: 8px 0; }
-  #status { min-height: 1.2em; color: #9c9; }
+  #delete, #delete:hover { background: none; border-color: transparent; color: #f6c1cf; }
+  #delete:hover { text-decoration: underline; }
+  .tools { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px; }
+  .s2 { grid-column: span 2; } .s3 { grid-column: span 3; } .s6 { grid-column: span 6; }
+  hr { border: 0; border-top: 1px solid #444; margin: 10px 0; }
+  #status { min-height: 1.3em; margin-top: 8px; color: #9c9; }
   #status.err { color: #e88; }
 </style>
 </head>
 <body>
-  <div class="row"><input type="checkbox" id="useScale"><label for="useScale">Scale</label>
-    <input type="number" id="scale" value="100" step="1"> %</div>
-  <div class="row"><input type="checkbox" id="usePos"><label for="usePos">Position</label>
-    <input type="number" id="posX" value="960" step="1">
-    <input type="number" id="posY" value="540" step="1"> px</div>
-  <div class="row"><input type="checkbox" id="useRot"><label for="useRot">Rotation</label>
-    <input type="number" id="rot" value="0" step="1"> &deg;</div>
+  <div class="sets">
+    <span></span><span class="head">Set A</span><span class="head">Set B</span>
 
-  <button id="apply">Apply to selected clips</button>
+    <span>Position</span>
+    <div class="cell"><input type="checkbox" id="usePosA"><input class="val" id="posXA" value="960"><input class="val" id="posYA" value="540"></div>
+    <div class="cell"><input type="checkbox" id="usePosB"><input class="val" id="posXB" value="960"><input class="val" id="posYB" value="540"></div>
+
+    <span>Scale</span>
+    <div class="cell"><input type="checkbox" id="useScaleA"><input class="val" id="scaleA" value="100">%</div>
+    <div class="cell"><input type="checkbox" id="useScaleB"><input class="val" id="scaleB" value="100">%</div>
+
+    <span>Rotation</span>
+    <div class="cell"><input type="checkbox" id="useRotA"><input class="val" id="rotA" value="0">&deg;</div>
+    <div class="cell"><input type="checkbox" id="useRotB"><input class="val" id="rotB" value="0">&deg;</div>
+
+    <span></span><button id="applyA">Apply A</button><button id="applyB">Apply B</button>
+  </div>
+  <div id="status"></div>
 
   <hr>
-  <div class="row"><select id="presets"><option value="">Presets...</option></select>
-    <button id="delete">Delete</button></div>
-  <div class="row"><input type="text" id="presetName" placeholder="Preset name">
-    <button id="save">Save</button></div>
+  <div class="tools">
+    <button class="s3" id="saveA">Save A as</button>
+    <button class="s3" id="saveB">Save B as</button>
+    <input class="s6" type="text" id="presetName" placeholder="New Preset Name">
+  </div>
 
-  <div id="status"></div>
+  <hr>
+  <div class="tools">
+    <select class="s6" id="presets"><option value="">Load Preset...</option></select>
+    <button class="s2" id="toA">to A</button>
+    <button class="s2" id="toB">to B</button>
+    <button class="s2" id="delete">Delete</button>
+  </div>
+
   <script src="main.js"></script>
 </body>
 </html>

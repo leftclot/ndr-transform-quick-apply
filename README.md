@@ -24,6 +24,8 @@ A small, free Adobe Premiere Pro panel that applies **Scale**, **Position** and/
 - Keyframed properties are skipped and listed in the status line, so existing animation isn't overwritten.
 - Changes go on Premiere's normal Edit > Undo stack.
 
+![The ndr Transform Quick Apply panel](docs/panel.png)
+
 ## Install (Windows)
 
 1. Download this repository (green **Code** button > **Download ZIP**) and unzip it.
@@ -75,6 +77,23 @@ Delete `%APPDATA%\Adobe\CEP\extensions\ndr-transform-quick-apply` (macOS: the fo
 | `main.js` | UI logic and presets (stored in the panel's localStorage) |
 | `host.jsx` | ExtendScript that changes the clips' Motion properties |
 | `install.ps1` | Windows installer for the current user |
+
+## Changelog
+
+### v1.5
+
+- Added a second transform state, so Set A and Set B now sit side by side.
+- Replaced the single Apply button with Apply A and Apply B.
+- You can now drag values left or right to adjust them. Hold Shift for steps of 10, or click a value to type.
+- Removed the up and down arrows from the value boxes.
+- Either set can now be saved as a preset with Save A as or Save B as.
+- Presets can now be loaded into either set with to A or to B.
+- Moved the status message under the Apply buttons.
+- Split the panel in two: the top half affects the timeline and the bottom half manages presets.
+
+### v1.0
+
+- First release, with Scale, Position and Rotation, plus named presets.
 
 ## License
 
